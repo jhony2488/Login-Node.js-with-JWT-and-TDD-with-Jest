@@ -5,13 +5,17 @@
     "main": "index.js",
     "scripts": {
         "start": "node ./src/server.js",
-        "dev": "nodemon ./src/server.js --ignore tests",
-        "test": "jest"
+        "dev": "nodemon ./src/server.js --ignore ./src/tests",
+        "pretest": "NODE_ENV=test sequelize db:migrate ",
+        "test": "NODE_ENV=test jest",
+        "posttest": "NODE_ENV=test sequelize db:migrate:undo:all"
     },
     "keywords": [],
     "author": "Jhonata Vinicius",
     "license": "ISC",
     "dependencies": {
+        "bcryptjs": "^2.4.3",
+        "dotenv": "^8.2.0",
         "express": "^4.17.1",
         "mysql2": "^2.2.5",
         "sequelize": "^6.5.0"
@@ -24,6 +28,8 @@
         "eslint-plugin-prettier": "^3.3.1",
         "jest": "^26.6.3",
         "prettier": "^2.2.1",
-        "sequelize-cli": "^6.2.0"
+        "sequelize-cli": "^6.2.0",
+        "sqlite3": "^5.0.1",
+        "supertest": "^6.1.3"
     }
 }

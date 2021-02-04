@@ -6,7 +6,6 @@ class AppController {
 
         this.middleware()
         this.routes()
-        this.server()
     }
 
     middleware() {
@@ -16,10 +15,5 @@ class AppController {
     routes() {
         this.express.use(require('./routes'))
     }
-    server() {
-        return this.express.listen(8080, () => {
-            console.log('servidor funcionando')
-        })
-    }
 }
-exports.module = new AppController()
+module.exports = new AppController().express
