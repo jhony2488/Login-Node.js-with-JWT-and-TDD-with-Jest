@@ -5,10 +5,9 @@
     "main": "index.js",
     "scripts": {
         "start": "node ./src/server.js",
-        "dev": "nodemon ./src/server.js --ignore ./src/tests",
+        "dev": "NODE_ENV=test nodemon ./src/server.js --ignore ./src/tests",
         "pretest": "NODE_ENV=test sequelize db:migrate ",
-        "test": "NODE_ENV=test jest",
-        "posttest": "NODE_ENV=test sequelize db:migrate:undo:all"
+        "test": "NODE_ENV=test jest"
     },
     "keywords": [],
     "author": "Jhonata Vinicius",
